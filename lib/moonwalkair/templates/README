@@ -1,0 +1,7 @@
+= <%= project_name %>
+
+Description of your project goes here.
+
+== Copyright
+
+Copyright (c) <%= Time.now.year %> <%= author %>. See LICENSE for details.
