@@ -12,11 +12,17 @@ class Moonwalkair
     # Folder and template files
     APP_DIR = "app"
     BIN_DIR = "bin"
+    TMP_DIR = "tmp"
 
     SCRIPT_DIR = "script"
     SCRIPT_BUILD = File.join(SCRIPT_DIR, 'build')
     SCRIPT_RUN = File.join(SCRIPT_DIR, 'run')
     SCRIPT_CERTIFICATE = File.join(SCRIPT_DIR, 'certificate')
+
+    CONFIG_DIR = "config"
+    CONFIG_BOOT = File.join(CONFIG_DIR, 'boot.rb')
+    CONFIG_BUILD = File.join(CONFIG_DIR, 'build.yml')
+    CONFIG_UPDATE = File.join(CONFIG_DIR, 'update_config.xml')
 
     attr_accessor :target_dir, :user_name, :user_email, :project_name, :options, :description
 
@@ -57,10 +63,14 @@ class Moonwalkair
       output_template_in_target SCRIPT_BUILD
       output_template_in_target SCRIPT_RUN
       output_template_in_target SCRIPT_CERTIFICATE
+
+      mkdir_in_target CONFIG_DIR
+      output_template_in_target CONFIG_BOOT
+      output_template_in_target CONFIG_BUILD
+      output_template_in_target CONFIG_UPDATE                 
     end
 
     def render_template(source)
-      puts File.join(template_dir, source)
       template_contents = File.read(File.join(template_dir, source))
       template          = ERB.new(template_contents, nil, '<>')
 
