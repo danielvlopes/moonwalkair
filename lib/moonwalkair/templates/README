@@ -4,4 +4,4 @@ Description of your project goes here.
 
 == Copyright
 
-Copyright (c) <%= Time.now.year %> <%= "#{user_name}, #{user_email} unless user_name.nil?" %>. See LICENSE for details.
+Copyright (c) <%= Time.now.year %> <%= "#{user_name}, #{user_email}" unless user_name.nil? %>. See LICENSE for details.

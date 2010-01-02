@@ -24,6 +24,15 @@ class Moonwalkair
     CONFIG_BUILD = File.join(CONFIG_DIR, 'build.yml')
     CONFIG_UPDATE = File.join(CONFIG_DIR, 'update_config.xml')
 
+    ASSETS_DIR =  File.join(APP_DIR, "assets")
+    ASSETS_AUDIO = File.join(ASSETS_DIR, "audio")
+    ASSETS_CSS = File.join(ASSETS_DIR, "css")
+    ASSETS_IMAGES = File.join(ASSETS_DIR, "images")
+
+    LIB_DIR =  File.join(APP_DIR, "lib")
+    SCRIPTS_DIR =  File.join(APP_DIR, "scripts")
+    VIEWS_DIR =  File.join(APP_DIR, "views")
+
     attr_accessor :target_dir, :user_name, :user_email, :project_name, :options, :description
 
     def initialize(options = {})
@@ -67,7 +76,19 @@ class Moonwalkair
       mkdir_in_target CONFIG_DIR
       output_template_in_target CONFIG_BOOT
       output_template_in_target CONFIG_BUILD
-      output_template_in_target CONFIG_UPDATE                 
+      output_template_in_target CONFIG_UPDATE
+
+      mkdir_in_target ASSETS_DIR
+      mkdir_in_target ASSETS_AUDIO
+      mkdir_in_target ASSETS_CSS
+      touch_in_target File.join(ASSETS_CSS, "#{project_name}.css")
+      output_template_in_target File.join(ASSETS_CSS, "jqtouch.css")
+      output_template_in_target File.join(ASSETS_CSS, "theme.css")      
+      copy_in_target ASSETS_IMAGES
+
+      mkdir_in_target LIB_DIR
+      mkdir_in_target SCRIPTS_DIR
+      mkdir_in_target VIEWS_DIR
     end
 
     def render_template(source)
@@ -96,6 +117,11 @@ class Moonwalkair
 
       FileUtils.mkdir final_destination
 
+      $stdout.puts "\tcreate\t#{directory}"
+    end
+
+    def copy_in_target(directory)
+      FileUtils.cp_r File.join(template_dir,directory), File.join(target_dir, directory)
       $stdout.puts "\tcreate\t#{directory}"
     end
 
