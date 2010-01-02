@@ -9,7 +9,7 @@ class Moonwalkair
     require 'moonwalkair/generator/options'
     require 'moonwalkair/generator/application'
 
-    attr_accessor :target_dir, :author, :project_name, :options, :description
+    attr_accessor :target_dir, :user_name, :user_email, :project_name, :options, :description
 
     def initialize(options = {})
       self.options = options
@@ -20,7 +20,8 @@ class Moonwalkair
       end
 
       self.target_dir = options[:directory] || self.project_name
-      self.author = options[:author] || "unknow"
+      self.user_name  = options[:user_name]
+      self.user_email = options[:user_email]
     end
 
     def run
