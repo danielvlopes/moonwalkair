@@ -3,11 +3,20 @@ require 'uri'
 
 class Moonwalkair
   class FileAlreadyExist < StandardError ; end
-  
+
   # Generator for creating a moonwalkair-enabled project
-  class Generator    
+  class Generator
     require 'moonwalkair/generator/options'
     require 'moonwalkair/generator/application'
+
+    # Folder and template files
+    APP_DIR = "app"
+    BIN_DIR = "bin"
+
+    SCRIPT_DIR = "script"
+    SCRIPT_BUILD = File.join(SCRIPT_DIR, 'build')
+    SCRIPT_RUN = File.join(SCRIPT_DIR, 'run')
+    SCRIPT_CERTIFICATE = File.join(SCRIPT_DIR, 'certificate')
 
     attr_accessor :target_dir, :user_name, :user_email, :project_name, :options, :description
 
@@ -39,10 +48,19 @@ class Moonwalkair
 
       output_template_in_target 'README'
       output_template_in_target 'LICENSE'
-      output_template_in_target 'descriptor.xml'            
+      output_template_in_target 'descriptor.xml'
+
+      mkdir_in_target APP_DIR
+      mkdir_in_target BIN_DIR
+
+      mkdir_in_target SCRIPT_DIR
+      output_template_in_target SCRIPT_BUILD
+      output_template_in_target SCRIPT_RUN
+      output_template_in_target SCRIPT_CERTIFICATE
     end
 
     def render_template(source)
+      puts File.join(template_dir, source)
       template_contents = File.read(File.join(template_dir, source))
       template          = ERB.new(template_contents, nil, '<>')
 

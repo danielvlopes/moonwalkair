@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "moonwalkair"
-    gem.summary = %Q{Help you to get your AIR app up and running}
+    gem.summary = %Q{Help you to get your AIR/JS app up and running}
     gem.description = %Q{Moonwalkair help you to start build your AIR app and make it walk in the right way. The gem let you start your development faster, creating the entire folder structure and many files that a AIR app depends}
     gem.email = "danielvlopes@gmail.com"
     gem.homepage = "http://github.com/danielvlopes/moonwalkair"

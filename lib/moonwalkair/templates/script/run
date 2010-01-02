@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+require "#{File.dirname(__FILE__)}/../config/boot"
+require 'optparse'
+
+# This hash will hold all of the options
+options = {}
+
+optparse = OptionParser.new do|opts|
+  opts.banner  = "Run the app with Adobe Debuger Launcher. \n"
+  opts.banner += "Usage: script/run [--pubid publisher-id] [--nodebug] [--arguments]"
+
+  opts.on( '-p', '--pubid [pubid]', 'Publisher ID' ) do |pubid|
+    options[:pubid] = pubid
+  end
+
+  opts.on( '-n', '--nodebug [nodebug]', 'Disable degub options' ) do |nodebug|
+    options[:nodebug] = true if nodebug
+  end
+
+  opts.on( '-a', '--arguments [arguments]', 'Arguments for the app' ) do |args|
+    options[:arguments] = args
+  end
+
+  # help screen
+  opts.on( '-h', '--help', 'Help screen' ) do
+    puts opts
+    exit
+  end
+end
+
+optparse.parse!
+
+cmd = "#{AIR_BIN}/adl"
+cmd+= " -pubid #{options[:pubid]}" if options.include?(:pubid)
+cmd+= " -nodebug" if options.include?(:nodebug)
+cmd+= " #{MOON_ROOT}/descriptor.xml -- #{options[:arguments]}"
+
+system cmd

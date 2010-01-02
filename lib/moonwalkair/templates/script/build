@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require 'tempfile'
+require "yui/compressor"
+require "optparse"
+require "#{File.dirname(__FILE__)}/../config/boot"
+
+class AirFile
+  class << self
+    def copy_to_tmp
+      FileUtils.rm_r Dir.glob("#{MOON_TMP}/*")
+      FileUtils.cp("#{MOON_ROOT}/descriptor.xml", "#{MOON_TMP}" )
+      build_files = YAML.load_file("#{MOON_CONFIG}/build.yml")["build_files"]
+      build_files.each do |f|
+        FileUtils.mkdir_p("#{MOON_TMP}/#{File.dirname(f)}")
+        FileUtils.cp_r(File.expand_path(f), "#{MOON_TMP}//#{f}")
+      end
+    end
+
+    def compress(path)
+      yui = YUI::JavaScriptCompressor.new(:munge => true)
+      Dir.glob("#{path}/**/*") do |file|
+        compressed = File.open(file, 'r') { | f | yui.compress(f.read) }
+        File.open(file, 'w+') { |f| f.puts compressed }
+      end
+    end
+
+    def build!
+      puts "copying files to tmp folder"
+      copy_to_tmp
+
+      puts "compressing and obfuscating files"
+      compress("#{MOON_TMP}/app/scripts")
+
+      system "cd tmp && #{AIR_BIN}/adt -package -storetype pkcs12 -keystore #{MOON_CONFIG}/cert.pfx #{MOON_BIN}/#{APP_NAME}.air descriptor.xml ."
+
+      puts "cleaning tmp folder"
+      FileUtils.rm_r Dir.glob("#{MOON_TMP}/*")
+      puts "=========================="
+      puts "Finished build process"
+    rescue => ex
+      puts "=========================="
+      puts "An error happen when try to build #{APP_NAME}.air file"
+      puts "error: #{ex.message}"
+    end    
+  end
+  
+end
+
+AirFile.build!

@@ -10,10 +10,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Lopes"]
   s.date = %q{2010-01-02}
-  s.default_executable = %q{moonwalkair}
+  s.default_executable = %q{moonwalk}
   s.description = %q{Moonwalkair help you to start build your AIR app and make it walk in the right way. The gem let you start your development faster, creating the entire folder structure and many files that a AIR app depends}
   s.email = %q{danielvlopes@gmail.com}
-  s.executables = ["moonwalkair"]
+  s.executables = ["moonwalk"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Help you to get your AIR app up and running}
+  s.summary = %q{Help you to get your AIR/JS app up and running}
   s.test_files = [
     "spec/moonwalkair_spec.rb",
      "spec/spec_helper.rb"

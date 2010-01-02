@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+require "#{File.dirname(__FILE__)}/../config/boot"
+require 'optparse'
+
+# This hash will hold all of the options
+options = {}
+
+optparse = OptionParser.new do|opts|
+  opts.banner  = "Generate a self signed certifcate for development purpose or not signed apps. \n"
+  opts.banner += "Usage: script/certificate -p xyz"
+
+  options[:password] = nil
+  opts.on( '-p', '--password PASSWORD', 'Your secret PASSWORD for cert' ) do |password|
+    options[:password] = password
+  end
+
+  # help screen
+  opts.on( '-h', '--help', 'Help screen' ) do
+    puts opts
+    exit
+  end
+end
+optparse.parse!
+
+system "#{AIR_LIB}/adt –certificate -cn SelfSigned 1024-RSA #{MOON_CONFIG}/cert.pfx #{options[:password]}"
+puts "successfuly generated cert.pfx in config folder"
