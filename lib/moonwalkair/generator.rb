@@ -120,14 +120,12 @@ class Moonwalkair
 
     def mkdir_in_target(directory)
       final_destination = File.join(target_dir, directory)
-
       FileUtils.mkdir final_destination
-
       $stdout.puts "\tcreate\t#{directory}"
     end
 
     def copy_in_target(directory)
-      FileUtils.mkdir_p directory
+      FileUtils.mkdir_p File.join(target_dir, directory)
       FileUtils.cp_r File.join(template_dir,directory), File.join(target_dir, directory)
       $stdout.puts "\tcreate\t#{directory}"
     end
