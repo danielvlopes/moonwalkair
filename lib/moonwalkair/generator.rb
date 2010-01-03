@@ -53,7 +53,7 @@ class Moonwalkair
       $stdout.puts "Your project is ready to walk in #{target_dir}"
     end
 
-  private
+    private
     def create_files
       unless File.exists?(target_dir) || File.directory?(target_dir)
         FileUtils.mkdir target_dir
@@ -83,12 +83,12 @@ class Moonwalkair
       mkdir_in_target ASSETS_CSS
       touch_in_target File.join(ASSETS_CSS, "#{project_name}.css")
       output_template_in_target File.join(ASSETS_CSS, "jqtouch.css")
-      output_template_in_target File.join(ASSETS_CSS, "theme.css")      
+      output_template_in_target File.join(ASSETS_CSS, "theme.css")
       copy_in_target ASSETS_IMAGES
 
-      mkdir_in_target LIB_DIR
+      copy_in_target LIB_DIR
+      copy_in_target VIEWS_DIR
       mkdir_in_target SCRIPTS_DIR
-      mkdir_in_target VIEWS_DIR
     end
 
     def render_template(source)
