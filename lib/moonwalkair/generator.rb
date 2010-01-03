@@ -93,7 +93,9 @@ class Moonwalkair
       copy_in_target VIEWS_DIR
       mkdir_in_target SCRIPTS_DIR
       
-      copy_in_target File.join("vendor",air_sdk)
+      $stdout.puts "\tcopying\t air sdk"  
+      mkdir_in_target "vendor"
+      copy_in_target air_sdk
     end
 
     def render_template(source)
