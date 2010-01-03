@@ -22,5 +22,5 @@ optparse = OptionParser.new do|opts|
 end
 optparse.parse!
 
-system "#{AIR_LIB}/adt –certificate -cn SelfSigned 1024-RSA #{MOON_CONFIG}/cert.pfx #{options[:password]}"
+system "#{AIR_BIN}/adt -certificate -cn SelfSigned 1024-RSA #{MOON_CONFIG}/cert.pfx #{options[:password]}"
 puts "successfuly generated cert.pfx in config folder"

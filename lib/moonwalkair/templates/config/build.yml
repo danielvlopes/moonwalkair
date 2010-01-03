@@ -2,7 +2,7 @@ build_files:
   - app/assets
   - app/lib/air/AIRAliases.js
   - app/lib/air/applicationupdater_ui.swf
-  - app/lib/jquery-1.3.2.js
+  - app/lib/jquery.js
   - app/lib/plugins
   - app/scripts
   - app/views
