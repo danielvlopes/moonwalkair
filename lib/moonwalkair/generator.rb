@@ -33,7 +33,8 @@ class Moonwalkair
     SCRIPTS_DIR =  File.join(APP_DIR, "scripts")
     VIEWS_DIR =  File.join(APP_DIR, "views")
 
-    attr_accessor :target_dir, :user_name, :user_email, :project_name, :options, :description
+    attr_accessor :target_dir, :user_name, :user_email, :project_name, 
+                  :options, :description, :air_sdk
 
     def initialize(options = {})
       self.options = options
@@ -42,7 +43,9 @@ class Moonwalkair
       if self.project_name.nil? || self.project_name.squeeze.strip == ""
         raise "Need a project name"
       end
-
+      
+      self.air_sdk = options[:air_sdk] || "air2.0beta"
+      
       self.target_dir = options[:directory] || self.project_name
       self.user_name  = options[:user_name]
       self.user_email = options[:user_email]
@@ -89,6 +92,8 @@ class Moonwalkair
       copy_in_target LIB_DIR
       copy_in_target VIEWS_DIR
       mkdir_in_target SCRIPTS_DIR
+      
+      copy_in_target File.join("vendor",air_sdk)
     end
 
     def render_template(source)
