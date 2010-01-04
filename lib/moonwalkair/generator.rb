@@ -94,6 +94,7 @@ class Moonwalkair
       mkdir_in_target SCRIPTS_DIR
       
       $stdout.puts "\tcopying\t air sdk"  
+      mkdir_in_target "vendor"
       copy_in_target File.join("vendor", air_sdk)
     end
 
@@ -125,7 +126,6 @@ class Moonwalkair
     end
 
     def copy_in_target(directory)
-      FileUtils.mkdir_p File.join(target_dir, directory)
       FileUtils.cp_r File.join(template_dir,directory), File.join(target_dir, directory)
       $stdout.puts "\tcreate\t#{directory}"
     end
