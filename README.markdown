@@ -7,6 +7,11 @@ MoonwalkAIR provides:
  * script to build your air file
  * script to create self signed certificate thats necessary to compile AIR apps
 
+## Why
+
+I ([Daniel Lopes](http://areacriacoes.com.br)) started this project with main purpose to help me in creating process of [Pomodo](http://pomodo.areacriacoes.com.br/) (an AIR app made with JS). This project avoid some repetitive decisions about organization and will help you to be more productive with boring tasks like run/compile your app without an IDE.
+For now this project not try to be a framework or anything like that. If you like to use it and want help will be very wellcome.
+
 ## Dependencies
 
   * ruby
@@ -105,8 +110,3 @@ You will work most of time in app folder and only thing you need to know is HTML
  * [Adobe AIR 1.5](http://help.adobe.com/en_US/AIR/1.5/devappshtml/index.html)
  * [Adobe AIR language reference](http://help.adobe.com/en_US/AIR/1.5/jslr/)
  * [Adobe AIR Developer center](http://www.adobe.com/devnet/air/ajax/quickstart/)
-
-## Who is behind
-
-I ([Daniel Lopes](http://areacriacoes.com.br)) did this project with only goal to help me to be more productive in my AIR apps ([see Pomodo](http://pomodo.areacriacoes.com.br/)) and avoid some repetitive decisions about organization.
-For now this project not try to be a framework or anything like that, it is just a bunch of generators and binary files to help my day to day development. If you like to use it and want help will be very wellcome.
