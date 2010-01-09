@@ -9,7 +9,7 @@ MoonwalkAIR provides:
 
 ## Why
 
-I ([Daniel Lopes](http://areacriacoes.com.br)) started this project with main purpose to help me in creating process of [Pomodo](http://pomodo.areacriacoes.com.br/) (an AIR app made with JS). This project avoid some repetitive decisions about organization and will help you to be more productive with boring tasks like run/compile your app without an IDE.
+I ([Daniel Lopes](http://areacriacoes.com.br)) started this project with main purpose to help me in the process of creating [Pomodo](http://pomodo.areacriacoes.com.br/) (an AIR app made with JS). This project avoid some repetitive decisions about organization and will help you to be more productive with boring tasks like run/compile your app without an IDE.
 For now this project not try to be a framework or anything like that. If you like to use it and want help will be very wellcome.
 
 ## Dependencies
