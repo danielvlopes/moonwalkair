@@ -60,7 +60,6 @@ When you call moonwalk command it will generate a folder structure where you wil
 
 ## Installing
 
-# Install the gem:
     gem install moonwalkair
 
 ## Using
