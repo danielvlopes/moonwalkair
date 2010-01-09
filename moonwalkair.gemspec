@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{moonwalkair}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Lopes"]
@@ -16,13 +16,13 @@ Gem::Specification.new do |s|
   s.executables = ["moonwalk"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.markdown"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
+     "README.markdown",
      "Rakefile",
      "VERSION.yml",
      "bin/moonwalk",
