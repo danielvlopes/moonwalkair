@@ -8,12 +8,13 @@ require "#{File.dirname(__FILE__)}/../config/boot"
 class AirFile
   class << self
     def copy_to_tmp
-      FileUtils.rm_r Dir.glob("#{MOON_TMP}/*")
-      FileUtils.cp("#{MOON_ROOT}/descriptor.xml", "#{MOON_TMP}" )
-      build_files = YAML.load_file("#{MOON_CONFIG}/build.yml")["build_files"]
+      FileUtils.rm_r Dir.glob(MoonwalkAir.tmp)
+      FileUtils.mkdir(MoonwalkAir.tmp)
+      FileUtils.cp("#{MoonwalkAir.root}/descriptor.xml", "#{MoonwalkAir.tmp}" )
+      build_files = YAML.load_file("#{MoonwalkAir.config}/build.yml")["build_files"]
       build_files.each do |f|
-        FileUtils.mkdir_p("#{MOON_TMP}/#{File.dirname(f)}")
-        FileUtils.cp_r(File.expand_path(f), "#{MOON_TMP}//#{f}")
+        FileUtils.mkdir_p("#{MoonwalkAir.tmp}/#{File.dirname(f)}")
+        FileUtils.cp_r(File.expand_path(f), "#{MoonwalkAir.tmp}/#{f}")
       end
     end
 
@@ -30,21 +31,21 @@ class AirFile
       copy_to_tmp
 
       puts "compressing and obfuscating files"
-      compress("#{MOON_TMP}/app/scripts")
+      compress("#{MoonwalkAir.tmp}/app/scripts")
 
-      system "cd tmp && #{AIR_BIN}/adt -package -storetype pkcs12 -keystore #{MOON_CONFIG}/cert.pfx #{MOON_BIN}/#{APP_NAME}.air descriptor.xml ."
+      system "cd tmp && #{MoonwalkAir.air_bin}/adt -package -storetype pkcs12 -keystore #{MoonwalkAir.config}/cert.pfx #{MoonwalkAir.bin}/#{MoonwalkAir.app_name}.air descriptor.xml ."
 
       puts "cleaning tmp folder"
-      FileUtils.rm_r Dir.glob("#{MOON_TMP}/*")
+      FileUtils.rm_r Dir.glob("#{MoonwalkAir.tmp}/*")
       puts "=========================="
       puts "Finished build process"
     rescue => ex
       puts "=========================="
-      puts "An error happen when try to build #{APP_NAME}.air file"
+      puts "An error happen when try to build #{MoonwalkAir.app_name}.air file"
       puts "error: #{ex.message}"
-    end    
+    end
   end
-  
+
 end
 
 AirFile.build!

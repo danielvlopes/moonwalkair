@@ -1,0 +1,2 @@
+app_name: <%= project_name %>
+air_sdk:  place here your sdk path

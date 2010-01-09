@@ -30,9 +30,9 @@ end
 
 optparse.parse!
 
-cmd = "#{AIR_BIN}/adl"
+cmd = "#{MoonwalkAir.air_bin}/adl"
 cmd+= " -pubid #{options[:pubid]}" if options.include?(:pubid)
 cmd+= " -nodebug" if options.include?(:nodebug)
-cmd+= " #{MOON_ROOT}/descriptor.xml -- #{options[:arguments]}"
+cmd+= " #{MoonwalkAir.root}/descriptor.xml -- #{options[:arguments]}"
 
 system cmd

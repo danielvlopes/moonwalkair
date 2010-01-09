@@ -1,11 +1,15 @@
-APP_NAME       = "<%= project_name %>"
+require "rubygems"
 
-MOON_CONFIG    = File.expand_path(File.dirname(__FILE__))
-MOON_ROOT      = File.expand_path("#{MOON_CONFIG}/..")
-MOON_BIN       = File.expand_path("#{MOON_ROOT}/bin")
-MOON_TMP       = File.expand_path("#{MOON_ROOT}/tmp")
+MOON_ROOT = "#{File.dirname(__FILE__)}/.." unless defined?(MOON_ROOT)
+CONFIG    = YAML.load_file(File.join(MOON_ROOT, 'config', 'config.yml'))
 
-AIR_SDK        = "<%= air_sdk %>"
-AIR_LIB        = File.expand_path("#{MOON_ROOT}/vendor/#{AIR_SDK}/lib")
-AIR_BIN        = File.expand_path("#{MOON_ROOT}/vendor/#{AIR_SDK}/bin")
-AIR_FRAMEWORKS = File.expand_path("#{MOON_ROOT}/vendor/#{AIR_SDK}/frameworks")
+module MoonwalkAir
+  class << self
+    def boot!
+      gem 'moonwalkair'
+      require 'initializer'
+    end
+  end
+end
+
+MoonwalkAir.boot!
