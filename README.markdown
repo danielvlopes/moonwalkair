@@ -109,4 +109,4 @@ You will work most of time in app folder and only thing you need to know is HTML
 ## Who is behind
 
 I ([Daniel Lopes](http://areacriacoes.com.br)) did this project with only goal to help me to be more productive in my AIR apps ([see Pomodo](http://pomodo.areacriacoes.com.br/)) and avoid some repetitive decisions about organization.
-Any help will be very wellcome, but don't expect support or customized features.
+For now this project not try to be a framework or anything like that, it is just a bunch of generators and binary files to help my day to day development. If you like to use it and want help will be very wellcome.
