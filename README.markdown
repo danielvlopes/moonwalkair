@@ -16,6 +16,7 @@ For now this project not try to be a framework or anything like that. If you lik
 
   * ruby
   * rubygems
+  * yui-compressor
   * air sdk
 
 ## What is generated for you:
