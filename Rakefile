@@ -11,6 +11,7 @@ begin
     gem.homepage = "http://github.com/danielvlopes/moonwalkair"
     gem.authors = ["Daniel Lopes"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_dependency('yui-compressor', '~> 0.9.1')
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
