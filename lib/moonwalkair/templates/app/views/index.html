@@ -11,23 +11,28 @@
         <script src="../lib/jquery.js" type="text/javascript" charset="utf-8" />
         <script src="../lib/plugins/jqtouch/jqtouch.js" type="text/javascript" charset="utf-8" />
         <script src='../lib/air/AIRAliases.js' type="text/javascript" charset="utf-8" />
-        
+
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({ });
+        </script>
+
     </head>
     <body>
-      <div class='current' id='home'>
+      <div id='home'>
         <div class='toolbar'>
           <h1>Home</h1>
         </div>
         <ul class='rounded'>
-          <li class='arrow'><a href='#todo'>TODO</a></li>
-          <!-- Add other menu items here -->
+          <li class='arrow'><a href="#todo">TODO</a></li>
         </ul>
-        <div class='info'>
-          <p>
-            Powered by MoonwalkAIR
-          </p>
+      </div>
+
+      <div id='todo'>
+        <div class='toolbar'>
+          <a href="#home" class="back">back</a>
+          <h1>Another Screen</h1>
         </div>
       </div>
-      <!-- Add other pages below -->
+
     </body>
 </html>
