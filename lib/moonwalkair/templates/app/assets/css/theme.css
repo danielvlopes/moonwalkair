@@ -1,33 +1,28 @@
 body {
-    background: rgb(0,0,0);
+    background: #000;
+    color: #ddd;
 }
-
 body > * {
-    background: rgb(197,204,211) url(../images/apple/pinstripes.png);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#5e5e65));
 }
-
 h1, h2 {
     font: bold 18px Helvetica;
     text-shadow: rgba(255,255,255,.2) 0 1px 1px;
-    color: rgb(76, 86, 108);
-    margin: 10px 20px 6px;
+    color: #000;
+    margin: 10px 20px 5px;
 }
-
 /* @group Toolbar */
-
 .toolbar {
     -webkit-box-sizing: border-box;
-    border-bottom: 1px solid #2d3642;
+    border-bottom: 1px solid #000;
     padding: 10px;
     height: 45px;
-    background: url(../images/apple/toolbar.png) #6d84a2 repeat-x;
+    background: url(../images/jqt/toolbar.png) #000000 repeat-x;
     position: relative;
 }
-
 .black-translucent .toolbar {
 	margin-top: 20px;
 }
-
 .toolbar > h1 {
     position: absolute;
     overflow: hidden;
@@ -39,23 +34,21 @@ h1, h2 {
     font-size: 20px;
     width: 150px;
     font-weight: bold;
-    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    text-shadow: rgba(0,0,0,1) 0 -1px 1px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #fff;
 }
-
 body.landscape .toolbar > h1 {
     margin-left: -125px;
     width: 250px;
 }
-
 .button, .back, .cancel, .add {
     position: absolute;
     overflow: hidden;
     top: 8px;
-    right: 6px;
+    right: 10px;
     margin: 0;
     border-width: 0 5px;
     padding: 0 3px;
@@ -71,38 +64,33 @@ body.landscape .toolbar > h1 {
     text-decoration: none;
     white-space: nowrap;
     background: none;
-    -webkit-border-image: url(../images/apple/toolButton.png) 0 5 0 5;
+    -webkit-border-image: url(../images/jqt/button.png) 0 5 0 5;
 }
-
-.button.active, .back.active, .cancel.active, .add.active {
-    -webkit-border-image: url(../images/apple/toolButton.png) 0 5 0 5;	
-}
-
 .blueButton {
-    -webkit-border-image: url(../images/apple/blueButton.png) 0 5 0 5;
+    -webkit-border-image: url(../images/jqt/blueButton.png) 0 5 0 5;
     border-width: 0 5px;
 }
-
 .back {
     left: 6px;
     right: auto;
     padding: 0;
     max-width: 55px;
     border-width: 0 8px 0 14px;
-    -webkit-border-image: url(../images/apple/backButton.png) 0 8 0 14;
+    -webkit-border-image: url(../images/jqt/back_button.png) 0 8 0 14;
 }
-
+.back.active {
+    -webkit-border-image: url(../images/jqt/back_button_clicked.png) 0 8 0 14;
+    color: #aaa;
+}
 .leftButton, .cancel {
     left: 6px;
     right: auto;
 }
-
 .add {
     font-size: 24px;
     line-height: 24px;
     font-weight: bold;
 }
-
 .whiteButton,
 .grayButton {
     display: block;
@@ -114,73 +102,61 @@ body.landscape .toolbar > h1 {
     text-decoration: inherit;
     color: inherit;
 }
-
 .whiteButton {
-    -webkit-border-image: url(../images/apple/whiteButton.png) 0 12 0 12;
+    -webkit-border-image: url(../images/jqt/whiteButton.png) 0 12 0 12;
     text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
 }
-
 .grayButton {
-    -webkit-border-image: url(../images/apple/grayButton.png) 0 12 0 12;
+    -webkit-border-image: url(../images/jqt/grayButton.png) 0 12 0 12;
     color: #FFFFFF;
 }
-
 /* @end */
-
 /* @group Lists */
-
 h1 + ul, h2 + ul, h3 + ul, h4 + ul, h5 + ul, h6 + ul {
     margin-top: 0;
 }
-
 ul {
-    color: black;
-    background: #fff;
-    border: 1px solid #B4B4B4;
-    font: bold 17px Helvetica;
+    color: #aaa;
+    border: 1px solid #333333;
+    font: bold 18px Helvetica;
     padding: 0;
     margin: 15px 10px 17px 10px;
+}
+ul.rounded {
     -webkit-border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,.3) 1px 1px 3px;
 }
-
-ul li {
-    color: #666;
-    border-top: 1px solid #B4B4B4;
-    list-style-type: none;
-    padding: 10px 10px 10px 10px;
-}
-
-/* when you have a first LI item on any list */
-
-li:first-child, li:first-child a {
+ul.rounded li:first-child, ul.rounded li:first-child a {
     border-top: 0;
     -webkit-border-top-left-radius: 8px;
     -webkit-border-top-right-radius: 8px;
 }
-
-li:last-child, li:last-child a {
+ul.rounded li:last-child, ul.rounded li:last-child a {
     -webkit-border-bottom-left-radius: 8px;
     -webkit-border-bottom-right-radius: 8px;
 }
-
-/* universal arrows */
-
+ul li {
+    color: #666;
+    border-top: 1px solid #333;
+    border-bottom: #555858;
+    list-style-type: none;
+    padding: 10px 10px 10px 10px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+    overflow: hidden;
+}
 ul li.arrow {
-    background-image: url(../images/apple/chevron.png);
+    background-image: url(../images/jqt/chevron.png), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
     background-position: right center;
     background-repeat: no-repeat;
 }
-
-#plastic ul li.arrow, #metal ul li.arrow {
-    background-image: url(../images/chevron_dg.png);
+ul li.forward {
+    background-image: url(../images/jqt/chevron_circle.png), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
     background-position: right center;
     background-repeat: no-repeat;
 }
-
 /* universal links on list */
-
 ul li a, li.img a + a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -189,24 +165,32 @@ ul li a, li.img a + a {
     padding: 12px 10px 12px 10px;
     margin: -10px;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-shadow: rgba(0,0,0,.2) 0 1px 1px;
 }
-
-ul li a.active {
-    background: #194fdb url(../images/apple/selection.png) 0 0 repeat-x;
+ul li a.active, ul li a.button {
+    background-color: #53b401;
     color: #fff;
 }
-
-ul li a.button {
-    background-color: #194fdb;
-    color: #fff;
+ul li a.active.loading {
+    background-image: url(../images/jqt/loading.gif);
+    background-position: 95% center;
+    background-repeat: no-repeat;
 }
-
+ul li.arrow a.active {
+    background-image: url(../images/jqt/chevron.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+ul li.forward a.active {
+    background-image: url(../images/jqt/chevron_circle.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
 ul li.img a + a {
     margin: -10px 10px -20px -5px;
     font-size: 17px;
     font-weight: bold;
 }
-
 ul li.img a + a + a {
     font-size: 14px;
     font-weight: normal;
@@ -214,11 +198,9 @@ ul li.img a + a + a {
     margin-bottom: -10px;
     margin-top: 0;
 }
-
 ul li.img a + small + a {
     margin-left: -5px;
 }
-
 ul li.img a + small + a + a {
     margin-left: -10px;
     margin-top: -20px;
@@ -226,12 +208,10 @@ ul li.img a + small + a + a {
     font-size: 14px;
     font-weight: normal;
 }
-
 ul li.img a + small + a + a + a {
     margin-left: 0px !important;
     margin-bottom: 0;
 }
-
 ul li a + a {
     color: #000;
     font: 14px Helvetica;
@@ -242,7 +222,6 @@ ul li a + a {
     margin: 0;
     padding: 0;
 }
-
 ul li a + a + a, ul li.img a + a + a + a, ul li.img a + small + a + a + a {
     color: #666;
     font: 13px Helvetica;
@@ -253,31 +232,21 @@ ul li a + a + a, ul li.img a + a + a + a, ul li.img a + small + a + a + a {
     display: block;
     padding: 0;
 }
-
 /*
 @end */
-
 /* @group Forms */
-
 ul.form li {
     padding: 7px 10px;
 }
-
 ul.form li.error {
     border: 2px solid red;
 }
-
 ul.form li.error + li.error {
     border-top: 0;
 }
-
-ul.form li:hover {
-    background: #fff;
-}
-
 ul li input[type="text"], ul li input[type="password"], ul li textarea, ul li select {
     color: #777;
-    background: #fff url(../.png);
+    background: transparent url(../.png);
     border: 0;
     font: normal 17px Helvetica;
     padding: 0;
@@ -286,97 +255,34 @@ ul li input[type="text"], ul li input[type="password"], ul li textarea, ul li se
     width: 100%;
     -webkit-appearance: textarea;
 }
-
 ul li textarea {
     height: 120px;
     padding: 0;
     text-indent: -2px;
 }
-
 ul li select {
     text-indent: 0px;
-    background: transparent url(../images/apple/chevron.png) no-repeat 103% 3px;
+    background: transparent url(../images/jqt/chevron.png) no-repeat right center;
     -webkit-appearance: textfield;
     margin-left: -6px;
     width: 104%;
 }
-
 ul li input[type="checkbox"], ul li input[type="radio"] {
     margin: 0;
-    color: rgb(50,79,133);
     padding: 10px 10px;
 }
-
 ul li input[type="checkbox"]:after, ul li input[type="radio"]:after {
     content: attr(title);
     font: 17px Helvetica;
     display: block;
     width: 246px;
+    color: #777;
     margin: -12px 0 0 17px;
 }
-
 /* @end */
-
-/* @group Edge to edge */
-
-.edgetoedge h4 {
-    color: #fff;
-    background: rgb(154,159,170) url(../images/apple/listGroup.png) top left repeat-x;
-    border-top: 1px solid rgb(165,177,186);
-    text-shadow: #666 0 1px 0;
-    margin: 0;
-    padding: 2px 10px;
-}
-
-.edgetoedge, .metal {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(255,255,255);
-}
-
-.edgetoedge ul, .metal ul, .plastic ul {
-    -webkit-border-radius: 0;
-    margin: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-}
-
-.metal ul {
-    border-top: 0;
-    border-bottom: 0;
-    background: rgb(180,180,180);
-}
-
-.edgetoedge ul li:first-child, .edgetoedge ul li:first-child a, .edgetoedge ul li:last-child, .edgetoedge ul li:last-child a, .metal ul li:first-child a, .metal ul li:last-child a {
-    -webkit-border-radius: 0;
-}
-
-.edgetoedge ul li small {
-    font-size: 16px;
-    line-height: 28px;
-}
-
-.edgetoedge li, .metal li {
-    -webkit-border-radius: 0;
-}
-
-.edgetoedge li em {
-    font-weight: normal;
-    font-style: normal;
-}
-
-.edgetoedge h4 + ul {
-    border-top: 1px solid rgb(152,158,164);
-    border-bottom: 1px solid rgb(113,125,133);
-}
-
-/* @end */
-
 /* @group Mini Label */
-
 ul li small {
-    color: #369;
+    color: #64c114;
     font: 17px Helvetica;
     text-align: right;
     text-overflow: ellipsis;
@@ -385,220 +291,40 @@ ul li small {
     display: block;
     width: 23%;
     float: right;
-    padding: 3px 0px;
+    padding: 0;
 }
-
 ul li.arrow small {
     padding: 0 15px;
 }
-
 ul li small.counter {
-    font-size: 17px !important;
-    line-height: 13px !important;
+    font-size: 17px;
+    line-height: 13px;
     font-weight: bold;
-    background: rgb(154,159,170);
+    background: rgba(0,0,0,.15);
     color: #fff;
     -webkit-border-radius: 11px;
     padding: 4px 10px 5px 10px;
-    display: inline !important;
+    display: block;
     width: auto;
     margin-top: -22px;
+    -webkit-box-shadow: rgba(255,255,255,.1) 0 1px 0;
 }
-
 ul li.arrow small.counter {
     margin-right: 15px;
 }
-
 /* @end */
-
-/* @group Plastic */
-
-#plastic ul li.arrow, #metal ul li.arrow {
-    background-image: url(../images/apple/listArrow.png);
-    background-position: right center;
-    background-repeat: no-repeat;
-}
-
-.edgetoedge ul, .metal ul, .plastic ul {
-    -webkit-border-radius: 0;
-    margin: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-}
-
-.metal ul li {
-    border-top: 1px solid rgb(238,238,238);
-    border-bottom: 1px solid rgb(156,158,165);
-    background: url(../images/bgMetal.png) top left repeat-x;
-    font-size: 26px;
-    text-shadow: #fff 0 1px 0;
-}
-
-.metal ul li a {
-    line-height: 26px;
-    margin: 0;
-    padding: 13px 0;
-}
-
-.metal ul li a:hover {
-    color: rgb(0,0,0);
-}
-
-.metal ul li:hover small {
-    color: inherit;
-}
-
-.metal ul li a em {
-    display: block;
-    font-size: 14px;
-    font-style: normal;
-    color: #444;
-    width: 50%;
-    line-height: 14px;
-}
-
-.metal ul li small {
-    float: right;
-    position: relative;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.metal ul li.arrow a small {
-    padding-right: 0;
-    line-height: 17px;
-}
-
-.metal ul li.arrow {
-    background: url(../images/bgMetal.png) top left repeat-x,
-    url(../images/chevron_dg.png) right center no-repeat;
-}
-
-.plastic {
-    margin: 0;
-    padding: 0;
-    background: rgb(173,173,173);
-}
-
-.plastic ul {
-    -webkit-border-radius: 0;
-    margin: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    background-color: rgb(173,173,173);
-}
-
-.plastic ul li {
-    -webkit-border-radius: 0;
-    border-top: 1px solid rgb(191,191,191);
-    border-bottom: 1px solid rgb(157,157,157);
-}
-
-.plastic ul li:nth-child(odd) {
-    background-color: rgb(152,152,152);
-    border-top: 1px solid rgb(181,181,181);
-    border-bottom: 1px solid rgb(138,138,138);
-}
-
-.plastic ul + p {
-    font-size: 11px;
-    color: #2f3237;
-    text-shadow: none;
-    padding: 10px 10px;
-}
-
-.plastic ul + p strong {
-    font-size: 14px;
-    line-height: 18px;
-    text-shadow: #fff 0 1px 0;
-}
-
-.plastic ul li a {
-    text-shadow: rgb(211,211,211) 0 1px 0;
-}
-
-.plastic ul li:nth-child(odd) a {
-    text-shadow: rgb(191,191,191) 0 1px 0;
-}
-
-.plastic ul li small {
-    color: #3C3C3C;
-    text-shadow: rgb(211,211,211) 0 1px 0;
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 24px;
-}
-
-#plastic ul.minibanner, #plastic ul.bigbanner {
-    margin: 10px;
-    border: 0;
-    height: 81px;
-    clear: both;
-}
-
-#plastic ul.bigbanner {
-    height: 140px !important;
-}
-
-#plastic ul.minibanner li {
-    border: 1px solid rgb(138,138,138);
-    background-color: rgb(152,152,152);
-    width: 145px;
-    height: 81px;
-    float: left;
-    -webkit-border-radius: 5px;
-    padding: 0;
-}
-
-#plastic ul.bigbanner li {
-    border: 1px solid rgb(138,138,138);
-    background-color: rgb(152,152,152);
-    width: 296px;
-    height: 140px;
-    float: left;
-    -webkit-border-radius: 5px;
-    padding: 0;
-    margin-bottom: 4px;
-}
-
-#plastic ul.minibanner li:first-child {
-    margin-right: 6px;
-}
-
-#plastic ul.minibanner li a {
-    color: transparent;
-    text-shadow: none;
-    display: block;
-    width: 145px;
-    height: 81px;
-}
-
-#plastic ul.bigbanner li a {
-    color: transparent;
-    text-shadow: none;
-    display: block;
-    width: 296px;
-    height: 145px;
-}
-
-/* @end */
-
 /* @group Individual */
-
 ul.individual {
     border: 0;
     background: none;
     clear: both;
     overflow: hidden;
+    padding-bottom: 3px;
+    -webkit-box-shadow: none;
 }
-
 ul.individual li {
-    color: rgb(183,190,205);
-    background: white;
-    border: 1px solid rgb(180,180,180);
+    background: #4c4d4e;
+    border: 1px solid #333;
     font-size: 14px;
     text-align: center;
     -webkit-border-radius: 8px;
@@ -607,30 +333,21 @@ ul.individual li {
     float: left;
     display: block;
     padding: 11px 10px 14px 10px;
+    -webkit-box-shadow: rgba(0,0,0,.2) 1px 1px 3px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
 }
-
 ul.individual li + li {
     float: right;
 }
-
 ul.individual li a {
-    color: rgb(50,79,133);
+    color: #fff;
     line-height: 16px;
     margin: -11px -10px -14px -10px;
     padding: 11px 10px 14px 10px;
     -webkit-border-radius: 8px;
 }
-
-ul.individual li a:hover {
-    color: #fff;
-    background: #36c;
-}
-
 /* @end */
-
 /* @group Toggle */
-
-
 .toggle {
     width: 94px;
     position: relative;
@@ -639,39 +356,172 @@ ul.individual li a:hover {
     overflow: hidden;
     float: right;
 }
-
 .toggle input[type="checkbox"]:checked {
     left: 0px;
 }
-
 .toggle input[type="checkbox"] {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    margin: 0;
-    -webkit-border-radius: 5px;
-    background: #fff url(../images/apple/on_off.png) 0 0 no-repeat;
-    height: 27px;
-    overflow: hidden;
-    width: 149px;
-    border: 0;
     -webkit-appearance: textarea;
-    background-color: transparent;
+    -webkit-border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-transition: left .15s;
+    background-color: transparent;
+    background: #fff url(../images/jqt/on_off.png) 0 0 no-repeat;
+    border: 0;
+    height: 27px;
+    left: -55px;
+    margin: 0;
+    overflow: hidden;
     position: absolute;
     top: 0;
-    left: -55px;
+    width: 149px;
 }
 /* @end */
-
-
-
+/* @group Info */
 .info {
-    background: #dce1eb;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#aaa), color-stop(.6,#CCCCCC));
     font-size: 12px;
     line-height: 16px;
     text-align: center;
     text-shadow: rgba(255,255,255,.8) 0 1px 0;
-    color: rgb(76, 86, 108);
+    color: #444;
     padding: 15px;
-    border-top: 1px solid rgba(76, 86, 108, .3);
+    border-top: 1px solid rgba(255,255,255,.2);
     font-weight: bold;
 }
+/* @end */
+/* @group Edge to edge */
+ul.edgetoedge {
+    border-width: 1px 0;
+    margin: 0;
+    padding: 0;
+}
+ul.edgetoedge li {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e1f21), to(#272729));
+    border-bottom: 2px solid #000;
+    border-top: 1px solid #4a4b4d;
+    font-size: 20px;
+    margin-bottom: -1px;
+}
+ul.edgetoedge li.sep {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,0)), to(rgba(0,0,0,.5)));
+    border-bottom: 1px solid #111113;
+    border-top: 1px solid #666;
+    color: #3e9ac3;
+    font-size: 16px;
+    margin: 1px 0 0 0;
+    padding: 2px 10px;
+    text-shadow: #000 0 1px 0;
+}
+ul.edgetoedge li em {
+    font-weight: normal;
+    font-style: normal;
+}
+/* @end */
+/* @group Plastic */
+#plastic {
+    background: #17181a;
+}
+ul.plastic {
+    background: #17181a;
+    color: #aaa;
+    font: bold 18px Helvetica;
+    margin: 0;
+    padding: 0;
+    border-width: 0 0 1px 0;
+}
+ul.plastic li {
+    border-width: 1px 0;
+    border-style: solid;
+    border-top-color: #222;
+    border-bottom-color: #000;
+    color: #666;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 10px 10px 10px 10px;
+}
+ul.plastic li a.active.loading {
+    background-image: url(../images/jqt/loading.gif);
+    background-position: 95% center;
+    background-repeat: no-repeat;
+}
+ul.plastic li small {
+    color: #888;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+ul.plastic li:nth-child(odd) {
+    background-color: #1c1c1f;
+}
+ul.plastic li.arrow {
+    background-image: url(../images/jqt/chevron.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+ul.plastic li.arrow a.active {
+    background-image: url(../images/jqt/chevron.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+ul.plastic li.forward {
+    background-image: url(../images/jqt/chevron_circle.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+ul.plastic li.forward a.active {
+    background-image: url(../images/jqt/chevron_circle.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+/* @group Metal */
+ul.metal {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 0;
+}
+ul.metal li {
+    background-image: none;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #666;
+    font-size: 26px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(238,238,238,1)), to(rgba(156,158,160,1)));
+}
+ul.metal li a {
+    line-height: 26px;
+    margin: 0;
+    text-shadow: #fff 0 1px 0;
+    padding: 13px 0;
+}
+ul.metal li a em {
+    display: block;
+    font-size: 14px;
+    font-style: normal;
+    color: #444;
+    width: 50%;
+    line-height: 14px;
+}
+ul.metal li a.active {
+    color: rgb(0,0,0);
+}
+ul.metal li small {
+    float: right;
+    position: relative;
+    margin-top: 10px;
+    font-weight: bold;
+}
+ul.metal li.arrow {
+    background-image: url(../images/jqt/chevron.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-image: url(../images/jqt/chevron.png), -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(238,238,238,1)), to(rgba(156,158,160,1)));
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+ul.metal li.arrow a small {
+    padding-right: 15px;
+    line-height: 17px;
+}
+/* @end */
