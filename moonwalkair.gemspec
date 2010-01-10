@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{moonwalkair}
-  s.version = "0.3.1"
+  s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Lopes"]
-  s.date = %q{2010-01-09}
+  s.date = %q{2010-01-10}
   s.default_executable = %q{moonwalk}
   s.description = %q{Moonwalkair help you to start build your AIR app and make it walk in the right way. The gem let you start your development faster, creating the entire folder structure and many files that a AIR app depends}
   s.email = %q{danielvlopes@gmail.com}
@@ -35,27 +35,24 @@ Gem::Specification.new do |s|
      "lib/moonwalkair/templates/README",
      "lib/moonwalkair/templates/app/assets/css/jqtouch.css",
      "lib/moonwalkair/templates/app/assets/css/theme.css",
-     "lib/moonwalkair/templates/app/assets/images/apple/backButton.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/blueButton.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/cancel.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/chevron.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/grayButton.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/listArrowSel.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/listGroup.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/loading.gif",
-     "lib/moonwalkair/templates/app/assets/images/apple/on_off.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/pinstripes.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/selection.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/thumb.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/toggle.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/toggleOn.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/toolButton.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/toolbar.png",
-     "lib/moonwalkair/templates/app/assets/images/apple/whiteButton.png",
      "lib/moonwalkair/templates/app/assets/images/icons/128.png",
      "lib/moonwalkair/templates/app/assets/images/icons/16.png",
      "lib/moonwalkair/templates/app/assets/images/icons/32.png",
      "lib/moonwalkair/templates/app/assets/images/icons/48.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/back_button.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/back_button_clicked.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/button.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/button_clicked.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/chevron.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/chevron_circle.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/grayButton.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/loading.gif",
+     "lib/moonwalkair/templates/app/assets/images/jqt/on_off.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/rowhead.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/toggle.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/toggleOn.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/toolbar.png",
+     "lib/moonwalkair/templates/app/assets/images/jqt/whiteButton.png",
      "lib/moonwalkair/templates/app/lib/air/AIRAliases.js",
      "lib/moonwalkair/templates/app/lib/air/AIRIntrospector.js",
      "lib/moonwalkair/templates/app/lib/air/AIRLocalizer.js",
