@@ -75,7 +75,7 @@ class Moonwalkair
             
       css_dir = File.join(APP_ASSETS_DIR, "css")
       mkdir_in_target css_dir
-      touch_in_target File.join(css_dir, "#{project_name}.css")
+      touch_in_target File.join(css_dir, "application.css")
       output_template_in_target File.join(css_dir, "jqtouch.css")
       output_template_in_target File.join(css_dir, "theme.css")
 
@@ -96,8 +96,7 @@ class Moonwalkair
       final_destination = File.join(target_dir, destination)
       template_result   = render_template(source)
 
-      File.open(final_destination, 'w') {|file| file.write(template_result)}
-
+      File.open(final_destination, 'w', 0755) {|file| file.write(template_result)}
       $stdout.puts "\tcreate\t#{destination}"
     end
 

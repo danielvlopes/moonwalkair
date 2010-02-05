@@ -1,38 +1,39 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>MoonwalkAIR beta</title>
-        <style type="text/css" media="screen">
-					@import "../assets/css/jqtouch.css";
-					@import "../assets/css/theme.css";
-				</style>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MoonwalkAIR beta</title>
+    <style type="text/css" media="screen">
+      @import "../assets/css/jqtouch.css";
+      @import "../assets/css/theme.css";
+      @import "../assets/css/application.css";
+    </style>
 
-        <script src="../lib/jquery.js" type="text/javascript" charset="utf-8" />
-        <script src="../lib/plugins/jqtouch/jqtouch.js" type="text/javascript" charset="utf-8" />
-        <script src='../lib/air/AIRAliases.js' type="text/javascript" charset="utf-8" />
+    <script src="../lib/jquery.js" type="text/javascript" charset="utf-8" />
+    <script src="../lib/plugins/jqtouch/jqtouch.js" type="text/javascript" charset="utf-8" />
+    <script src='../lib/air/AIRAliases.js' type="text/javascript" charset="utf-8" />
 
-        <script type="text/javascript" charset="utf-8">
-            var jQT = new $.jQTouch({ });
-        </script>
-
-    </head>
-    <body>
-      <div id='home'>
-        <div class='toolbar'>
-          <h1>Home</h1>
-        </div>
-        <ul class='rounded'>
-          <li class='arrow'><a href="#todo">TODO</a></li>
-        </ul>
+    <script type="text/javascript" charset="utf-8">
+      $.jQTouch({ });
+    </script>
+  </head>
+  <body>
+    <div id="home">
+      <div class="toolbar">
+        <h1>Wellcome</h1>
+        <a href="#info" class="button leftButton flip">Info</a>
       </div>
+    </div>
 
-      <div id='todo'>
-        <div class='toolbar'>
-          <a href="#home" class="back">back</a>
-          <h1>Another Screen</h1>
-        </div>
+    <div id="info">
+      <div class="toolbar">
+        <h1>About</h1>
+        <a href="#home" class="back">Back</a>
       </div>
+      <div class="info">
+        This is a demo for MoonwalkAir.
+      </div>
+    </div>
 
-    </body>
+  </body>
 </html>
